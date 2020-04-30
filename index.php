@@ -42,10 +42,15 @@
             default   :     $src_img = IMageCreateFromGIF ($_FILES['uploadfile']['tmp_name']);
         }
         $dst_img = ImageCreate($size[0]*2, $size[1]);
+
         $bg = ImageColorAllocate($dst_img, 240,240,240);
-        ImageFill($dst_img, 0, 0, $bg);
+        $pngbg = ImageColorAllocate($dst_img, 0,0,0);
+        //imagecolortransparent($dst_img, $pngbg);
+        imagealphablending($dst_img, true);
         ImageCopy($dst_img,$src_img,$size[0]/2,0,0,0,$size[0],$size[1]);
-        imagepng($dst_img, "ICON/$dst_name.png");
+        ImageFill($dst_img, 0, 0, $bg);
+        ImageFill($dst_img, $size[0]*2, 0, $bg);
+        ImageJPEG($dst_img, "ICON/$dst_name.jpg",100);
     }
 ?>
 
