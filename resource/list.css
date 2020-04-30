@@ -1,0 +1,126 @@
+html{
+    background: url("index_bg.jpg") no-repeat center center fixed;
+    background-size: cover;
+}
+#container{
+    max-width: 800px;
+    border-radius: 32px;
+    background-color: white;
+    margin: 0 auto;
+}
+#title{
+    width: 100%;
+    margin: 0;
+    border-radius: 32px;
+    background-color: rgb(40,40,40);
+    color: white;
+    margin-bottom: 32px;
+    padding-top: 32px;
+    padding-bottom: 32px;
+    overflow: hidden;
+}
+#title h1{
+    margin-left: 64px;
+    display: inline;
+}
+#submitbutton{
+    float: right;
+    padding: 0;
+    border: 0;
+    background-color: rgb(40,40,40);
+}
+#submitbutton img{
+    height: 48px;
+    width: 48px;
+}
+#input{
+    margin: 0px;
+    margin-right: 32px;
+    margin-bottom: 64px;
+    height: 48px;
+    color: black;
+    width: 200px;
+    padding: 0;
+    float:right;
+    font-weight: 48px;
+    font-size: 20px;
+    padding: 8px;
+    border: 0;
+    border-radius: 16px;
+}
+#query{
+    margin-top: 16px;
+    background-color: rgb(240,240,240);
+    width: 320px;
+    margin-left: 54px;
+    border-radius: 24px;
+    padding-bottom: 10px;
+}
+#query img{
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 300px;
+}
+h3{
+    margin-left: 10px;
+    color: black;
+}
+form{
+    float: right;
+    height: 48px;
+    margin-right: 32px;
+}
+ul{
+    list-style: none;
+    margin: 0 32px;
+    padding: 0;
+}
+li{
+    background-color: rgb(240,240,240);
+    margin-bottom: 32px;
+    padding: 16px;
+    border-radius: 32px;
+    overflow: hidden;
+}
+li img{
+    float: right;
+    width: 480px;
+}
+h1{
+    display: inline;
+    margin: 0;
+}
+
+#back{
+    width: 64px;
+    height: 64px;
+    float: right;
+    position: fixed;
+    right: 10;
+    top: 10;
+    background-color: white;
+    border-radius: 24px;
+}
+a img{
+    margin: 8px;
+}
+@media ( max-width: 820px ){
+    li{
+        text-align: center;
+    }
+    li img{
+        margin: 0;
+        width: 100%;
+        float: none;
+    }
+    h1{
+        display: block;
+    }
+    #title form{
+        margin-top: 32px;
+    }
+    #query{
+        margin: 0 auto;
+        margin-top: 100px;
+    }
+}
