@@ -72,11 +72,11 @@
                         if(!is_dir($path)) {
                             echo '<li>';
                             echo '<img src="'.$path.'">';
-                            echo '<h2>'.explode('.', array_pop(explode('\\', $path)))[0].'</h2>';
+                            echo '<h2>'.explode('.', array_pop(explode('/', $path)))[0].'</h2>';
                             echo '<h4>'.$path.'</h4>';
                             echo '</li>';
                         } else if($value != "." && $value != "..") {
-                            echo '<a class="extend" onclick="control()">'.str_replace('ICON\\', '', $path).'</a>';
+                            echo '<a class="extend" onclick="control()">'.str_replace('ICON/', '', $path).'</a>';
                             echo '<div class="folder">';
                             Getimage($path, $results);
                         }
