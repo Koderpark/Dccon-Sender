@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <header>
     <title>카카오톡 이모티콘</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,8 @@
 </header>
 
 <link rel="stylesheet" type="text/css" href="resource/list.css">
+
+<script type="text/javascript" src="resource/list.js"></script>
 
 <html>
     <body>
@@ -73,9 +76,12 @@
                             echo '<h4>'.$path.'</h4>';
                             echo '</li>';
                         } else if($value != "." && $value != "..") {
+                            echo '<a class="extend" onclick="control()">'.str_replace('ICON\\', '', $path).'</a>';
+                            echo '<div class="folder">';
                             Getimage($path, $results);
                         }
                     }
+                    echo '</div>'; // 한 폴더의 탐색이 끝남.
                 }
                 Getimage('ICON');
                 ?>
@@ -84,3 +90,5 @@
         <a id="back" href="./index.php"><img src="resource/list_exit.png"></a>
     </body>
 </html>
+
+<script src="resource/list.js"></script>

@@ -33,7 +33,7 @@
             exit;
         }
         if(!in_array($ext, $whitelist)){ echo "<script>alert('잘못된 확장자입니다\\n[ jpg, jpeg, png, gif ] 파일으로 올려주세요');</script>"; exit; }// 확장자 검사
-        if($size[0] != $size[1]){ echo "<script>alert('가로 세로의 비율이 다릅니다\\n꼭 1대 1 비율으로 올려주세요 (100x100 권장) ');</script>"; exit; }
+        //if($size[0] != $size[1]){ echo "<script>alert('가로 세로의 비율이 다릅니다\\n꼭 1대 1 비율으로 올려주세요 (100x100 권장) ');</script>"; exit; }
         switch($ext){
             case 'jpg':
             case 'jpeg':    $src_img = ImageCreateFromJPEG($_FILES['uploadfile']['tmp_name']); break;
