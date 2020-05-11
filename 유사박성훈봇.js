@@ -25,19 +25,6 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
                 replier.reply("http://116.127.164.173/list.php?search="+message.replace(' ','+'));
             }
         }
-
-        if(message == "주사위"){
-            var dice = Math.floor(Math.random()*6+1);
-            replier.reply("주사위가챠의 결과는 "+dice);
-            switch(dice){
-                case 6: replier.reply("●    ●\n●    ●\n●    ●"); break;
-                case 5: replier.reply("●    ●\n    ●    \n●    ●"); break;
-                case 4: replier.reply("●    ●\n            \n●    ●"); break;
-                case 3: replier.reply("    ●    \n    ●    \n    ●    "); break;
-                case 2: replier.reply("            \n●    ●\n            "); break;
-                case 1: replier.reply("            \n    ●    \n            "); break;
-            }
-        }
     }
 }
 
