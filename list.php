@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="유사-박성훈봇"/>
+    <meta property="og:title" content="디시콘-출력기"/>
 </header>
 
 <link rel="stylesheet" type="text/css" href="resource/list.css">
