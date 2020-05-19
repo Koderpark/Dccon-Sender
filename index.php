@@ -1,21 +1,25 @@
 <header>
     <title>카카오톡 이모티콘</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="디시콘-출력기"/>
 </header>
 
 <link rel="stylesheet" type="text/css" href="resource/index.css">
 
 <?php
+    // 에러 & 경고 무시하게 하기.
     ini_set('display_errors', '0');
+
+    //경로와 확장자 제한.
     $upload_dir = './iCON';
     $whitelist = array('jpg','jpeg','png','gif');
 
+    //파일 업로드
     $error = $_FILES['uploadfile']['error'];
     $name = $_FILES['uploadfile']['name'];
     $dst_name = $_POST['filename'];
     $ext = array_pop(explode('.', $name));
-    $size = GetImageSize($_FILES['uploadfile']['tmp_name']);//0 = x, 1 = y, 2 = 확장자
-    //echo "<script>alert('hello world');</script>";
+    $size = GetImageSize($_FILES['uploadfile']['tmp_name']);//0 = x크기, 1 = y크기
 
     if($name != NULL){ // 이미지 업로드가 맞음
         if($error != UPLOAD_ERR_OK){ // 에러 핸들링
@@ -41,16 +45,15 @@
             case 'gif':
             default   :     $src_img = IMageCreateFromGIF ($_FILES['uploadfile']['tmp_name']);
         }
-        $dst_img = ImageCreate($size[0]*2, $size[1]);
+        $dst_img = ImageCreate($size[0]*2, $size[1]);//가로길이가 두배인 이미지 틀을 제작.
 
-        $bg = ImageColorAllocate($dst_img, 240,240,240);
-        $pngbg = ImageColorAllocate($dst_img, 0,0,0);
-        //imagecolortransparent($dst_img, $pngbg);
+        $bg = ImageColorAllocate($dst_img, 240,240,240);// 배경색 rgb(240,240,240)
+        $pngbg = ImageColorAllocate($dst_img, 0,0,0);// png배경색 rgb(0,0,0)
         imagealphablending($dst_img, true);
-        ImageCopy($dst_img,$src_img,$size[0]/2,0,0,0,$size[0],$size[1]);
-        ImageFill($dst_img, 0, 0, $bg);
-        ImageFill($dst_img, $size[0]*2, 0, $bg);
-        ImageJPEG($dst_img, "ICON/$dst_name.jpg",100);
+        ImageCopy($dst_img,$src_img,$size[0]/2,0,0,0,$size[0],$size[1]); // 중간에 이미지 복사해넣기
+        ImageFill($dst_img, 0, 0, $bg);          // 이미지 틀에 배경색 채우기 1
+        ImageFill($dst_img, $size[0]*2, 0, $bg); // 이미지 틀에 배경색 채우기 2
+        ImageJPEG($dst_img, "ICON/[업로드된 콘]/$dst_name.jpg",100); // 저장
     }
 ?>
 
@@ -66,7 +69,7 @@
             </div>
             <div class="flex right">
                 <h1>이모티콘 목록</h1>
-                <h3>200+ 개의 사용가능한 이모티콘!</h3>
+                <h3>100+ 개의 사용가능한 이모티콘!</h3>
                 <img src="resource/index_icon.gif">
                 <div id="subtitle">사실 움짤은 안된다 하더라</div>
                 <a class="btn-right" href="list.php">목록 보러가기</a>
