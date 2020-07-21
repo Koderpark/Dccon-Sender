@@ -30,10 +30,10 @@ function response(room, msg, sender, isGroupChat, replier, imageDB, packageName)
     }
     if(cmd == ".콘"){
         var message = msg.replace(".콘 ","");
-        if(msg == ".콘") replier.reply("http://koder.iptime.org/");
-        else if(message == "목록") replier.reply("http://koder.iptime.org/list.php");
-        else if(message == "업로드") replier.reply("http://koder.iptime.org/");
-        else replier.reply("http://koder.iptime.org/list.php?search="+message.replace(' ','+'));
+        if(msg == ".콘") replier.reply("https://dccon-sender.herokuapp.com/index.php");
+        else if(message == "목록") replier.reply("https://dccon-sender.herokuapp.com/list.php");
+        else if(message == "업로드") replier.reply("https://dccon-sender.herokuapp.com/index.php");
+        else replier.reply("https://dccon-sender.herokuapp.com/list.php?search="+message.replace(' ','+'));
     }
     
     if(isGroupChat == false){
